@@ -3,16 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithm.MTSP", "Algorithm.ConstraintsPairing\Algorithm.MTSP.csproj", "{00A2C492-5D29-44A5-956A-A17CE865C1B5}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithm.MTSP.UT", "Algorithm.ConstraintsPairing.UT\Algorithm.MTSP.UT.csproj", "{C452E7C1-ECB4-42A3-AC0F-A832563A501F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTSP.API", "Christmas.Secret.Gifter.API\MTSP.API.csproj", "{0301E0EE-D9B7-4040-A82C-D82F8ECCCA43}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTSP.Database.SQLite", "Christmas.Secret.Gifter.Database.SQLite\MTSP.Database.SQLite.csproj", "{B5BD5530-4367-412B-80E6-9713D46A5041}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTSP.Domain", "Christmas.Secret.Gifter.Domain\MTSP.Domain.csproj", "{9FEB2E97-1B1D-471B-8C03-CADB731CC73F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{64CC3751-039B-4F0B-A129-2B785136BC92}"
 	ProjectSection(SolutionItems) = preProject
 		.dockerignore = .dockerignore
@@ -20,8 +10,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Dockerfile = Dockerfile
 		heroku.yml = heroku.yml
 		README.md = README.md
-		Christmas.Secret.Gifter.Domain\tgconfig.json = Christmas.Secret.Gifter.Domain\tgconfig.json
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithm.MTSP", "Algorithm.MTSP\Algorithm.MTSP.csproj", "{CC38371B-6787-4FB5-B394-041EE54E091C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithm.MTSP.UT", "Algorithm.MTSP.UT\Algorithm.MTSP.UT.csproj", "{7F9C622F-B181-49B1-A8EA-8E89A7802B9C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTSP.API", "Multiple.Salesmans.Problem.API\MTSP.API.csproj", "{29AD4C1E-C665-4EA6-8C00-83EBE2954D6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTSP.Database.SQLite", "Multiple.Salesmans.Problem.Database.SQLite\MTSP.Database.SQLite.csproj", "{63307AA6-E817-4F11-B2C5-81F5CB62372C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTSP.Domain", "Multiple.Salesmans.Problem.Domain\MTSP.Domain.csproj", "{C8B3495E-CA72-4B0F-B333-BCDBAC52AF8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,26 +28,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{00A2C492-5D29-44A5-956A-A17CE865C1B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00A2C492-5D29-44A5-956A-A17CE865C1B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00A2C492-5D29-44A5-956A-A17CE865C1B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00A2C492-5D29-44A5-956A-A17CE865C1B5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C452E7C1-ECB4-42A3-AC0F-A832563A501F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C452E7C1-ECB4-42A3-AC0F-A832563A501F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C452E7C1-ECB4-42A3-AC0F-A832563A501F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C452E7C1-ECB4-42A3-AC0F-A832563A501F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0301E0EE-D9B7-4040-A82C-D82F8ECCCA43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0301E0EE-D9B7-4040-A82C-D82F8ECCCA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0301E0EE-D9B7-4040-A82C-D82F8ECCCA43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0301E0EE-D9B7-4040-A82C-D82F8ECCCA43}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B5BD5530-4367-412B-80E6-9713D46A5041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5BD5530-4367-412B-80E6-9713D46A5041}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5BD5530-4367-412B-80E6-9713D46A5041}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5BD5530-4367-412B-80E6-9713D46A5041}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9FEB2E97-1B1D-471B-8C03-CADB731CC73F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9FEB2E97-1B1D-471B-8C03-CADB731CC73F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9FEB2E97-1B1D-471B-8C03-CADB731CC73F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9FEB2E97-1B1D-471B-8C03-CADB731CC73F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC38371B-6787-4FB5-B394-041EE54E091C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC38371B-6787-4FB5-B394-041EE54E091C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC38371B-6787-4FB5-B394-041EE54E091C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC38371B-6787-4FB5-B394-041EE54E091C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F9C622F-B181-49B1-A8EA-8E89A7802B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F9C622F-B181-49B1-A8EA-8E89A7802B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F9C622F-B181-49B1-A8EA-8E89A7802B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F9C622F-B181-49B1-A8EA-8E89A7802B9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29AD4C1E-C665-4EA6-8C00-83EBE2954D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29AD4C1E-C665-4EA6-8C00-83EBE2954D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29AD4C1E-C665-4EA6-8C00-83EBE2954D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29AD4C1E-C665-4EA6-8C00-83EBE2954D6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63307AA6-E817-4F11-B2C5-81F5CB62372C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63307AA6-E817-4F11-B2C5-81F5CB62372C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63307AA6-E817-4F11-B2C5-81F5CB62372C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63307AA6-E817-4F11-B2C5-81F5CB62372C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B3495E-CA72-4B0F-B333-BCDBAC52AF8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B3495E-CA72-4B0F-B333-BCDBAC52AF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B3495E-CA72-4B0F-B333-BCDBAC52AF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B3495E-CA72-4B0F-B333-BCDBAC52AF8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
