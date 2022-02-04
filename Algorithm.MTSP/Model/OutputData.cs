@@ -1,4 +1,5 @@
 ﻿using Google.OrTools.LinearSolver;
+using Google.OrTools.Sat;
 
 namespace Algorithm.MTSP.Model
 {
@@ -6,7 +7,7 @@ namespace Algorithm.MTSP.Model
     {
         private Variable[,] variables;
 
-        public Solver.ResultStatus Status;
+        public CpSolverStatus Status;
 
         public InputData Input { get; set; }
 

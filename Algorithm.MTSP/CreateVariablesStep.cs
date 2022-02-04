@@ -1,5 +1,6 @@
 ﻿using Algorithm.MTSP.Model;
 using Google.OrTools.LinearSolver;
+using Google.OrTools.Sat;
 using System;
 using System.Threading.Tasks;
 
@@ -7,20 +8,16 @@ namespace Algorithm.MTSP
 {
     public class CreateVariablesStep : ICreateStep
     {
-        protected Solver _solver;
+        protected CpSolver _solver;
+        protected readonly CpModel _model;
 
         public CreateVariablesStep()
-            : this("SCIP")
         {
-            // intentionally left blank
+            _model = new CpModel();
+            _solver = new CpSolver();
         }
 
         public Variable[,] Variables { get; private set; }
-
-        public CreateVariablesStep(string solverType)
-        {
-            _solver = Solver.CreateSolver(solverType);
-        }
 
         public async virtual Task Initialize(InputData input)
         {

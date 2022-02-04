@@ -1,5 +1,6 @@
 ﻿using Algorithm.MTSP.Model;
 using Google.OrTools.LinearSolver;
+using Google.OrTools.Sat;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,13 +10,7 @@ namespace Algorithm.MTSP
     public sealed class Engine : CreateObjectiveFunctionStep
     {
         public Engine()
-            : this("SCIP")
-        {
-            // intentionally left blank
-        }
-
-        public Engine(string solverType)
-            : base(solverType)
+            : base()
         {
             // intentionally left blank
         }
@@ -26,11 +21,11 @@ namespace Algorithm.MTSP
             {
                 await Initialize(input);
 
-                Solver.ResultStatus resultStatus = _solver.Solve();
+                CpSolverStatus resultStatus = _solver.Solve(_model);
 
                 return new OutputDataSummary()
                 {
-                    IsError = resultStatus != Solver.ResultStatus.OPTIMAL && resultStatus != Solver.ResultStatus.FEASIBLE ? true : false,
+                    IsError = resultStatus != CpSolverStatus.Optimal && resultStatus != CpSolverStatus.Feasible ? true : false,
                     Reason = string.Empty,
                     Data = new OutputData()
                     {

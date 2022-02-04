@@ -8,13 +8,7 @@ namespace Algorithm.MTSP
     public class CreateConstraintsStep : CreateVariablesStep, ICreateStep
     {
         public CreateConstraintsStep()
-            : this("SCIP")
-        {
-            // intentionally left blank
-        }
-
-        public CreateConstraintsStep(string solverType)
-            : base(solverType)
+            : base()
         {
             // intentionally left blank
         }

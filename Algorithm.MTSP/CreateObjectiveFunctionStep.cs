@@ -8,13 +8,7 @@ namespace Algorithm.MTSP
     public class CreateObjectiveFunctionStep : CreateConstraintsStep, ICreateStep
     {
         public CreateObjectiveFunctionStep()
-            : this("SCIP")
-        {
-            // intentionally left blank
-        }
-
-        public CreateObjectiveFunctionStep(string solverType)
-            : base(solverType)
+            : base()
         {
             // intentionally left blank
         }
