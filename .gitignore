@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Albergue.Administrator/.vs/Albergue.Administrator/v16
+/Albergue.Administrator/obj
+/Albergue.Administrator/bin
+bin
+obj
+obj
+.vs
+bin
+obj
+/Christmas.Secret.Gifter.API/obj/Debug
+/Christmas.Secret.Gifter.API/Application.db
