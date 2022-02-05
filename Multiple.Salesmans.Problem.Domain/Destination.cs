@@ -8,6 +8,6 @@ namespace MTSP.Domain
         public string Name { get; set; }
         public decimal Longtitude { get; set; }
         public decimal Latitude { get; set; }
-        public bool isMainSpot { get; set; }
+        public bool isMainSpot { get; set; } = false;
     }
 }
