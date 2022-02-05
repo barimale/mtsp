@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Christmas.Secret.Gifter.API": {
+    "MTSP.API": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
@@ -9,7 +9,7 @@
       "applicationUrl": "http://localhost:5020",
       "dotnetRunMessages": "true"
     },
-    "Christmas.Secret.Gifter.API.DEV": {
+    "MTSP.API.DEV": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

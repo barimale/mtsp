@@ -23,10 +23,4 @@
     <ProjectReference Include="..\Multiple.Salesmans.Problem.Database.SQLite\MTSP.Database.SQLite.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="Properties\albergue-administrator.service">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
