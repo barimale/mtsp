@@ -2,6 +2,7 @@
 using Google.OrTools.Sat;
 using MTSP.Domain;
 using System.Collections.Generic;
+using System.Linq;
 using TypeGen.Core.TypeAnnotations;
 
 namespace Algorithm.MTSP.Model.Responses
@@ -11,6 +12,7 @@ namespace Algorithm.MTSP.Model.Responses
     {
         public CpSolverStatus Status;
         public InputData Input { get; set; }
-        public Dictionary<PostPerson, List<Checkpoint>> CheckpointsPerPostperson { get; set; }
+        public List<Checkpoint> Checkpoints { get; set; }
+        public int CalculatedAmountOfCheckpoints => Input.Destinations.Count(p => !p.isMainSpot) + (2 * Input.NumOfPostmans);
     }
 }

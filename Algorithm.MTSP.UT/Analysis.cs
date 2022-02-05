@@ -80,8 +80,8 @@ namespace Algorithm.MTSP.UT
             Assert.False(result.IsError);
             Assert.Null(result.Reason);
             Assert.NotNull(result.Data);
-            Assert.NotEmpty(result.Data.CheckpointsPerPostperson);
-            Assert.Equal(result.Data.CheckpointsPerPostperson.Count, result.Data.Input.NumOfPostmans);
+            Assert.NotEmpty(result.Data.Checkpoints);
+            Assert.Equal(result.Data.Checkpoints.Count, result.Data.Input.NumOfPostmans * );
         }
 
         //[Fact]

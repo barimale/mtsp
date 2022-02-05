@@ -13,7 +13,8 @@
   },
   "customTypeMappings": {
     "System.DateTime": "string",
-    "Some.Custom.Type": "number"
+    "Some.Custom.Type": "number",
+    "System.Collections.Generic.KeyValuePair`2": "Object"
   },
   "typeUnionsForTypes": {
     "string": [ "null", "undefined" ],
