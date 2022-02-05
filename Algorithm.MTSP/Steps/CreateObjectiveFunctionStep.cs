@@ -31,17 +31,17 @@ namespace Algorithm.MTSP.Steps
         {
             try
             {
-                Objective objective = _solver.Objective();
+                //Objective objective = _solver.Objective();
 
-                for (int i = 0; i < input.GifterAmount; ++i)
-                {
-                    for (int j = 0; j < input.GifterAmount; ++j)
-                    {
-                        objective.SetCoefficient(variables[i, j], input.Costs[i, j]);
-                    }
-                }
+                //for (int i = 0; i < input.GifterAmount; ++i)
+                //{
+                //    for (int j = 0; j < input.GifterAmount; ++j)
+                //    {
+                //        objective.SetCoefficient(variables[i, j], input.Costs[i, j]);
+                //    }
+                //}
 
-                objective.SetMinimization();
+                //objective.SetMinimization();
             }
             catch (Exception)
             {

@@ -9,8 +9,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using MTSP.API.HostedServices;
-using MTSP.API.HostedServices.Hub;
 using MTSP.API.Services;
 using MTSP.API.Services.Abstractions;
 using MTSP.Database.SQLite;
@@ -33,10 +31,6 @@ namespace MTSP.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddSingleton<ILocalesStatusHub, LocalesStatusHub>();
-
-            services.AddScoped<IImageExtractor, ImageExtractor>();
-            services.AddScoped<ILocalesGenerator, LocalesGenerator>();
             services.AddScoped<IAuthorizeService, AuthorizeService>();
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<IParticipantService, ParticipantService>();
@@ -101,8 +95,6 @@ namespace MTSP.API
                     }}, new List<string>()}
                 });
             });
-
-            services.AddHostedService<LocalesHostedService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, GifterDbContext dbContext)
@@ -145,7 +137,6 @@ namespace MTSP.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<LocalesStatusHub>("/localesHub");
             });
         }
     }

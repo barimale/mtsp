@@ -4,7 +4,6 @@ using Microsoft.Extensions.Logging;
 using MTSP.API.Services.Abstractions;
 using MTSP.Database.SQLite.Entries;
 using MTSP.Database.SQLite.Repositories.Abstractions;
-using MTSP.Domain;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,12 +28,12 @@ namespace MTSP.API.Services
             _mapper = mapper;
         }
 
-        public async Task<Participant> AddAsync(Participant item, CancellationToken cancellationToken)
+        public async Task<dynamic> AddAsync(dynamic item, CancellationToken cancellationToken)
         {
             var mapped = _mapper.Map<ParticipantEntry>(item);
             var added = await _participantRepoistory.AddAsync(mapped, cancellationToken);
 
-            return _mapper.Map<Participant>(added);
+            return _mapper.Map<dynamic>(added);
         }
 
         public async Task<int> DeleteAsync(string id, CancellationToken cancellationToken)
@@ -57,28 +56,28 @@ namespace MTSP.API.Services
             return deleted;
         }
 
-        public async Task<Participant[]> GetAllAsync(string eventId, CancellationToken? cancellationToken = null)
+        public async Task<dynamic[]> GetAllAsync(string eventId, CancellationToken? cancellationToken = null)
         {
             var found = await _participantRepoistory.GetAllAsync(eventId, cancellationToken);
 
             return found.
-                Select(p => _mapper.Map<Participant>(p))
+                Select(p => _mapper.Map<dynamic>(p))
                 .ToArray();
         }
 
-        public async Task<Participant> GetByIdAsync(string id, CancellationToken cancellationToken)
+        public async Task<dynamic> GetByIdAsync(string id, CancellationToken cancellationToken)
         {
             var found = await _participantRepoistory.GetByIdAsync(id, cancellationToken);
 
-            return _mapper.Map<Participant>(found);
+            return _mapper.Map<dynamic>(found);
         }
 
-        public async Task<Participant> UpdateAsync(Participant item, CancellationToken cancellationToken)
+        public async Task<dynamic> UpdateAsync(dynamic item, CancellationToken cancellationToken)
         {
             var mapped = _mapper.Map<ParticipantEntry>(item);
             var updated = await _participantRepoistory.UpdateAsync(mapped, cancellationToken);
 
-            return _mapper.Map<Participant>(updated);
+            return _mapper.Map<dynamic>(updated);
         }
     }
 }

@@ -1,11 +1,8 @@
-﻿using Algorithm.MTSP.Model;
-using Algorithm.MTSP.Model.Requests;
+﻿using Algorithm.MTSP.Model.Requests;
 using Algorithm.MTSP.Model.Responses;
 using Algorithm.MTSP.Steps;
-using Google.OrTools.LinearSolver;
 using Google.OrTools.Sat;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Algorithm.MTSP
@@ -35,7 +32,6 @@ namespace Algorithm.MTSP
                         Status = resultStatus,
                         Variables = Variables,
                         Input = input,
-                        Pairs = ToPairs(resultStatus, Variables, input.GifterAmount)
                     }
                 };
             }
@@ -54,30 +50,30 @@ namespace Algorithm.MTSP
             }
         }
 
-        private Pair[] ToPairs(Solver.ResultStatus status, Variable[,] variables, int gifterAmount)
-        {
-            var result = new List<Pair>();
+        //private Pair[] ToPairs(Solver.ResultStatus status, Variable[,] variables, int gifterAmount)
+        //{
+        //    var result = new List<Pair>();
 
-            if (status == Solver.ResultStatus.OPTIMAL || status == Solver.ResultStatus.FEASIBLE)
-            {
-                for (int i = 0; i < gifterAmount; ++i)
-                {
-                    for (int j = 0; j < gifterAmount; ++j)
-                    {
-                        if (variables[i, j].SolutionValue() > 0.5)
-                        {
-                            result.Add(
-                                new Pair()
-                                {
-                                    FromIndex = i,
-                                    ToIndex = j
-                                });
-                        }
-                    }
-                }
-            }
+        //    if (status == Solver.ResultStatus.OPTIMAL || status == Solver.ResultStatus.FEASIBLE)
+        //    {
+        //        for (int i = 0; i < gifterAmount; ++i)
+        //        {
+        //            for (int j = 0; j < gifterAmount; ++j)
+        //            {
+        //                if (variables[i, j].SolutionValue() > 0.5)
+        //                {
+        //                    result.Add(
+        //                        new Pair()
+        //                        {
+        //                            FromIndex = i,
+        //                            ToIndex = j
+        //                        });
+        //                }
+        //            }
+        //        }
+        //    }
 
-            return result.ToArray();
-        }
+        //    return result.ToArray();
+        //}
     }
 }

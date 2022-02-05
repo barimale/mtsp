@@ -38,13 +38,12 @@ namespace MTSP.API.Controllers
         {
             try
             {
-                var result = await _engine.CalculateAsync(input.ToInputData());
+                var result = await _engine.CalculateAsync(input);
 
                 return Ok(new AlgorithmResponse()
                 {
                     IsError = result.IsError,
                     Reason = result.Reason,
-                    Pairs = result.Data.Pairs,
                     AnalysisStatus = result.Data.Status.ToString()
                 });
             }

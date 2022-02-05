@@ -25,7 +25,7 @@ namespace Algorithm.MTSP.Steps
         {
             try
             {
-                Variables = CreateVariables(input);
+                CreateVariables(input);
             }
             catch (Exception)
             {
@@ -33,7 +33,7 @@ namespace Algorithm.MTSP.Steps
             }
         }
 
-        private Variable[,] CreateVariables(InputData input)
+        private void CreateVariables(InputData input)
         {
             const int K = 1;
             const int U = 20;

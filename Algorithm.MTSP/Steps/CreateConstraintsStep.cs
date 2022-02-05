@@ -32,23 +32,23 @@ namespace Algorithm.MTSP.Steps
         {
             try
             {
-                for (int i = 0; i < input.GifterAmount; ++i)
-                {
-                    Constraint constraint1 = _solver.MakeConstraint(0, 1, "");
-                    for (int j = 0; j < input.GifterAmount; ++j)
-                    {
-                        constraint1.SetCoefficient(variables[i, j], 1);
-                    }
-                }
+                //for (int i = 0; i < input.GifterAmount; ++i)
+                //{
+                //    Constraint constraint1 = _solver.MakeConstraint(0, 1, "");
+                //    for (int j = 0; j < input.GifterAmount; ++j)
+                //    {
+                //        constraint1.SetCoefficient(variables[i, j], 1);
+                //    }
+                //}
 
-                for (int j = 0; j < input.GifterAmount; ++j)
-                {
-                    Constraint constraint2 = _solver.MakeConstraint(1, 1, "");
-                    for (int i = 0; i < input.GifterAmount; ++i)
-                    {
-                        constraint2.SetCoefficient(variables[i, j], 1);
-                    }
-                }
+                //for (int j = 0; j < input.GifterAmount; ++j)
+                //{
+                //    Constraint constraint2 = _solver.MakeConstraint(1, 1, "");
+                //    for (int i = 0; i < input.GifterAmount; ++i)
+                //    {
+                //        constraint2.SetCoefficient(variables[i, j], 1);
+                //    }
+                //}
             }
             catch (Exception)
             {

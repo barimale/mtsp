@@ -4,9 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using MTSP.API.Services.Abstractions;
-using MTSP.Domain;
 using System;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -186,7 +184,7 @@ namespace MTSP.API.Controllers
                     return NotFound("Event with such id not registered.");
                 }
 
-                return Ok(existedEvent.Participants.ToArray());
+                return Ok(existedEvent);
             }
             catch (Exception ex)
             {
