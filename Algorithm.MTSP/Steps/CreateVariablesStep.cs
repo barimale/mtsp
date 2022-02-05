@@ -34,13 +34,8 @@ namespace Algorithm.MTSP.Steps
 
         private void CreateVariables(InputData input)
         {
-            const int K = 1;
-            const int U = 20;
-            const int numOfDestinations = 4;
-            const int numOfPostmans = 3;
-
-            int[] allDestinations = Enumerable.Range(0, numOfDestinations).ToArray(); // WIP extend by type of building -> amount of people living there, use it later in line  29
-            int[] allPostmans = Enumerable.Range(0, numOfPostmans).ToArray();
+            int[] allDestinations = Enumerable.Range(0, input.NumOfDestinations).ToArray();
+            int[] allPostmans = Enumerable.Range(0, input.NumOfPostmans).ToArray();
 
             Dictionary<Tuple<int, int>, IntVar> destinationsForPostmans = new Dictionary<Tuple<int, int>, IntVar>();
             foreach (int n in allDestinations)
@@ -50,6 +45,7 @@ namespace Algorithm.MTSP.Steps
                     destinationsForPostmans.Add(Tuple.Create(n, d), _model.NewBoolVar($"destinations_n{n}d{d}"));
                 }
             }
+
 
         }
     }

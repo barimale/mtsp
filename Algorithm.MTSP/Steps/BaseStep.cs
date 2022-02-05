@@ -9,6 +9,7 @@ namespace Algorithm.MTSP.Steps
     {
         protected readonly CpSolver _solver;
         protected readonly CpModel _model;
+        protected dynamic bag;
 
         public BaseStep()
         {
