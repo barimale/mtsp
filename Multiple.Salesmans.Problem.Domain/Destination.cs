@@ -5,8 +5,9 @@ namespace MTSP.Domain
     [ExportTsInterface]
     public class Destination
     {
-        public int Longtitude { get; set; }
-        public int Latitude { get; set; }
-        public bool isMainSpot { get; set; } = false;
+        public string Name { get; set; }
+        public decimal Longtitude { get; set; }
+        public decimal Latitude { get; set; }
+        public bool isMainSpot { get; set; }
     }
 }

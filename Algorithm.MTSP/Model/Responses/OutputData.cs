@@ -1,5 +1,7 @@
 ﻿using Algorithm.MTSP.Model.Requests;
 using Google.OrTools.Sat;
+using MTSP.Domain;
+using System.Collections.Generic;
 using TypeGen.Core.TypeAnnotations;
 
 namespace Algorithm.MTSP.Model.Responses
@@ -8,7 +10,7 @@ namespace Algorithm.MTSP.Model.Responses
     public class OutputData
     {
         public CpSolverStatus Status;
-
         public InputData Input { get; set; }
+        public Dictionary<PostPerson, List<Checkpoint>> CheckpointsPerPostperson { get; set; }
     }
 }
