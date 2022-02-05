@@ -81,7 +81,7 @@ namespace Algorithm.MTSP.UT
             Assert.Null(result.Reason);
             Assert.NotNull(result.Data);
             Assert.NotEmpty(result.Data.Checkpoints);
-            Assert.Equal(result.Data.Checkpoints.Count, result.Data.Input.NumOfPostmans * );
+            Assert.Equal(result.Data.Checkpoints.Count, result.Data.CalculatedAmountOfCheckpoints);
         }
 
         //[Fact]
