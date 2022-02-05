@@ -30,7 +30,6 @@ namespace Algorithm.MTSP
                     Data = new OutputData()
                     {
                         Status = resultStatus,
-                        Variables = Variables,
                         Input = input,
                     }
                 };

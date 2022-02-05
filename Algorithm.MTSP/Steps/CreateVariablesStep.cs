@@ -1,4 +1,5 @@
-﻿using Algorithm.MTSP.Model.Requests;
+﻿using Algorithm.MTSP.Abstractions;
+using Algorithm.MTSP.Model.Requests;
 using Google.OrTools.Sat;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Algorithm.MTSP.Steps
 {
-    public class CreateVariablesStep : BaseStep, ICreateStep
+    public class CreateVariablesStep : BaseStep, IEngineStep
     {
         protected CpSolver _solver;
         protected readonly CpModel _model;
@@ -45,8 +46,6 @@ namespace Algorithm.MTSP.Steps
                     destinationsForPostmans.Add(Tuple.Create(n, d), _model.NewBoolVar($"destinations_n{n}d{d}"));
                 }
             }
-
-
         }
     }
 }

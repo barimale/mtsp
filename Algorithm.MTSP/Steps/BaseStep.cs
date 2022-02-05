@@ -1,11 +1,12 @@
-﻿using Algorithm.MTSP.Model.Requests;
+﻿using Algorithm.MTSP.Abstractions;
+using Algorithm.MTSP.Model.Requests;
 using Google.OrTools.Sat;
 using System;
 using System.Threading.Tasks;
 
 namespace Algorithm.MTSP.Steps
 {
-    public class BaseStep
+    public class BaseStep : IEngineStep
     {
         protected readonly CpSolver _solver;
         protected readonly CpModel _model;

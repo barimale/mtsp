@@ -1,9 +1,9 @@
 ﻿using Algorithm.MTSP.Model.Requests;
 using System.Threading.Tasks;
 
-namespace Algorithm.MTSP
+namespace Algorithm.MTSP.Abstractions
 {
-    public interface ICreateStep
+    public interface IEngineStep
     {
         Task Initialize(InputData input);
     }

@@ -1,11 +1,11 @@
-﻿using Algorithm.MTSP.Model.Requests;
-using Google.OrTools.LinearSolver;
+﻿using Algorithm.MTSP.Abstractions;
+using Algorithm.MTSP.Model.Requests;
 using System;
 using System.Threading.Tasks;
 
 namespace Algorithm.MTSP.Steps
 {
-    public class CreateObjectiveFunctionStep : CreateConstraintsStep, ICreateStep
+    public class CreateObjectiveFunctionStep : CreateConstraintsStep, IEngineStep
     {
         public CreateObjectiveFunctionStep()
             : base()
@@ -19,7 +19,7 @@ namespace Algorithm.MTSP.Steps
             {
                 await base.Initialize(input);
 
-                CreateObjectiveFunction(input, Variables);
+                CreateObjectiveFunction(input);
             }
             catch (Exception)
             {
@@ -27,7 +27,7 @@ namespace Algorithm.MTSP.Steps
             }
         }
 
-        private void CreateObjectiveFunction(InputData input, Variable[,] variables)
+        private void CreateObjectiveFunction(InputData input)
         {
             try
             {
