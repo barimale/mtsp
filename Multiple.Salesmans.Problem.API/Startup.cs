@@ -12,7 +12,6 @@ using Microsoft.OpenApi.Models;
 using MTSP.API.Services;
 using MTSP.API.Services.Abstractions;
 using MTSP.Database.SQLite;
-using MTSP.Database.SQLite.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,14 +34,14 @@ namespace MTSP.API
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<IParticipantService, ParticipantService>();
 
-            services.AddSQLLiteDatabase();
+            //services.AddSQLLiteDatabase();
 
             services.AddCors();
 
-            services.AddDbContext<GifterDbContext>(options =>
-                options
-                    .UseSqlite(Configuration.GetConnectionString("GifterDbContext"),
-                b => b.MigrationsAssembly(typeof(GifterDbContext).Assembly.FullName)));
+            //services.AddDbContext<GifterDbContext>(options =>
+            //    options
+            //        .UseSqlite(Configuration.GetConnectionString("GifterDbContext"),
+            //    b => b.MigrationsAssembly(typeof(GifterDbContext).Assembly.FullName)));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<GifterDbContext>()

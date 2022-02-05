@@ -1,5 +1,8 @@
-﻿namespace Algorithm.MTSP.Model.Responses
+﻿using TypeGen.Core.TypeAnnotations;
+
+namespace Algorithm.MTSP.Model.Responses
 {
+    [ExportTsInterface]
     public class OutputDataSummary
     {
         public bool IsError { get; set; } = false;

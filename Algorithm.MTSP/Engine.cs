@@ -21,7 +21,17 @@ namespace Algorithm.MTSP
             {
                 await Initialize(input);
 
-                CpSolverStatus resultStatus = _solver.Solve(_model);
+                ObjectiveSolutionPrinter cb = new ObjectiveSolutionPrinter();
+                // Search for all solutions.
+                _solver.StringParameters = "enumerate_all_solutions:true";
+
+                CpSolverStatus resultStatus = _solver.Solve(_model, cb);
+
+                Console.WriteLine("Statistics");
+                Console.WriteLine($"  conflicts : {_solver.NumConflicts()}");
+                Console.WriteLine($"  branches  : {_solver.NumBranches()}");
+                Console.WriteLine($"  wall time : {_solver.WallTime()} s");
+                Console.WriteLine($"  number of solutions found: {cb.solutionCount()}");
 
                 return new OutputDataSummary()
                 {

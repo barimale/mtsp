@@ -1,5 +1,6 @@
 ﻿using Algorithm.MTSP.Abstractions;
 using Algorithm.MTSP.Model.Requests;
+using Google.OrTools.Sat;
 using System;
 using System.Threading.Tasks;
 
@@ -7,6 +8,8 @@ namespace Algorithm.MTSP.Steps
 {
     public class CreateConstraintsStep : CreateVariablesStep, IEngineStep
     {
+        protected IntVar CostFunction { get; set; }
+
         public CreateConstraintsStep()
             : base()
         {

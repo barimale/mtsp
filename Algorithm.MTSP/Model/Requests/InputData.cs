@@ -1,8 +1,10 @@
 ﻿using MTSP.Domain;
 using System.Collections.Generic;
+using TypeGen.Core.TypeAnnotations;
 
 namespace Algorithm.MTSP.Model.Requests
 {
+    [ExportTsInterface]
     public class InputData
     {
         public CPSettings CPSettings { get; set; } = new CPSettings();

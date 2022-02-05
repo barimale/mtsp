@@ -10,14 +10,15 @@ namespace Algorithm.MTSP.Steps
 {
     public class CreateVariablesStep : BaseStep, IEngineStep
     {
-        protected CpSolver _solver;
-        protected readonly CpModel _model;
-
         public CreateVariablesStep()
+            : base()
         {
-            _model = new CpModel();
-            _solver = new CpSolver();
+            // intentionally left blank
         }
+
+        protected int[] AllDestinations { get; set; }
+        protected int[] AllPostmans { get; set; }
+        protected Dictionary<Tuple<int, int>, IntVar> DestinationsForPostmans { get; set; }
 
         public async virtual Task Initialize(InputData input)
         {
@@ -35,15 +36,15 @@ namespace Algorithm.MTSP.Steps
 
         private void CreateVariables(InputData input)
         {
-            int[] allDestinations = Enumerable.Range(0, input.NumOfDestinations).ToArray();
-            int[] allPostmans = Enumerable.Range(0, input.NumOfPostmans).ToArray();
+            AllDestinations = Enumerable.Range(0, input.NumOfDestinations).ToArray();
+            AllPostmans = Enumerable.Range(0, input.NumOfPostmans).ToArray();
 
-            Dictionary<Tuple<int, int>, IntVar> destinationsForPostmans = new Dictionary<Tuple<int, int>, IntVar>();
-            foreach (int n in allDestinations)
+            DestinationsForPostmans = new Dictionary<Tuple<int, int>, IntVar>();
+            foreach (int n in AllDestinations)
             {
-                foreach (int d in allPostmans)
+                foreach (int d in AllPostmans)
                 {
-                    destinationsForPostmans.Add(Tuple.Create(n, d), _model.NewBoolVar($"destinations_n{n}d{d}"));
+                    DestinationsForPostmans.Add(Tuple.Create(n, d), _model.NewBoolVar($"destinations_n{n}d{d}"));
                 }
             }
         }
