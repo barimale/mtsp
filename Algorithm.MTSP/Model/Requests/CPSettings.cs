@@ -3,8 +3,9 @@
 namespace Algorithm.MTSP.Model.Requests
 {
     [ExportTsInterface]
-    public class AlgorithmRequest : InputData
+    public class CPSettings
     {
-        // intentionally left blank
+        public int K { get; set; } = 1;
+        public int U { get; set; } = 20;
     }
 }

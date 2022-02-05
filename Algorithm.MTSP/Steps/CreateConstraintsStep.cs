@@ -1,9 +1,9 @@
-﻿using Algorithm.MTSP.Model;
+﻿using Algorithm.MTSP.Model.Requests;
 using Google.OrTools.LinearSolver;
 using System;
 using System.Threading.Tasks;
 
-namespace Algorithm.MTSP
+namespace Algorithm.MTSP.Steps
 {
     public class CreateConstraintsStep : CreateVariablesStep, ICreateStep
     {

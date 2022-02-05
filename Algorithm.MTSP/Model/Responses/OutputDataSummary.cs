@@ -1,4 +1,4 @@
-﻿namespace Algorithm.MTSP.Model
+﻿namespace Algorithm.MTSP.Model.Responses
 {
     public class OutputDataSummary
     {

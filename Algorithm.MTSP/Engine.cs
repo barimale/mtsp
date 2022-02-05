@@ -1,4 +1,7 @@
 ﻿using Algorithm.MTSP.Model;
+using Algorithm.MTSP.Model.Requests;
+using Algorithm.MTSP.Model.Responses;
+using Algorithm.MTSP.Steps;
 using Google.OrTools.LinearSolver;
 using Google.OrTools.Sat;
 using System;
@@ -44,7 +47,7 @@ namespace Algorithm.MTSP
                     Reason = ex.Message,
                     Data = new OutputData()
                     {
-                        Status = Solver.ResultStatus.NOT_SOLVED,
+                        Status = CpSolverStatus.Unknown,
                         Input = input,
                     }
                 };

@@ -1,7 +1,8 @@
-﻿using Google.OrTools.LinearSolver;
+﻿using Algorithm.MTSP.Model.Requests;
+using Google.OrTools.LinearSolver;
 using Google.OrTools.Sat;
 
-namespace Algorithm.MTSP.Model
+namespace Algorithm.MTSP.Model.Responses
 {
     public class OutputData
     {
@@ -22,9 +23,5 @@ namespace Algorithm.MTSP.Model
                 variables = value;
             }
         }
-
-        public Pair[] Pairs { get; set; }
-
-        public int GifterAmount => Input.GifterAmount;
     }
 }

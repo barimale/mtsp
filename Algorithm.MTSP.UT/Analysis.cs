@@ -1,4 +1,4 @@
-using Algorithm.MTSP.Model;
+using Algorithm.MTSP.Model.Requests;
 using System.Threading.Tasks;
 using Xunit;
 
