@@ -1,5 +1,4 @@
 ﻿using Algorithm.MTSP.Model.Requests;
-using Google.OrTools.LinearSolver;
 using Google.OrTools.Sat;
 using System;
 using System.Collections.Generic;
@@ -19,12 +18,12 @@ namespace Algorithm.MTSP.Steps
             _solver = new CpSolver();
         }
 
-        public Variable[,] Variables { get; private set; }
-
         public async virtual Task Initialize(InputData input)
         {
             try
             {
+                await base.Initialize(input);
+
                 CreateVariables(input);
             }
             catch (Exception)
