@@ -1,3 +1,4 @@
+using Algorithm.MTSP;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,15 +34,9 @@ namespace MTSP.API
             services.AddScoped<IAuthorizeService, AuthorizeService>();
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<IParticipantService, ParticipantService>();
-
-            //services.AddSQLLiteDatabase();
+            services.AddMTSP(retryAttempts: 5);
 
             services.AddCors();
-
-            //services.AddDbContext<GifterDbContext>(options =>
-            //    options
-            //        .UseSqlite(Configuration.GetConnectionString("GifterDbContext"),
-            //    b => b.MigrationsAssembly(typeof(GifterDbContext).Assembly.FullName)));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<GifterDbContext>()

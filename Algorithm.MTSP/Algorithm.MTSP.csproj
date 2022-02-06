@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BingMapsRESTToolkit" Version="1.1.4" />
+    <PackageReference Include="DotNet.RestApi.Client" Version="3.1.0" />
     <PackageReference Include="Google.OrTools" Version="9.1.9490" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="6.0.1" />
     <PackageReference Include="TypeGen" Version="3.0.0" />
   </ItemGroup>
 

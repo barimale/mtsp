@@ -3,7 +3,7 @@
 namespace MTSP.Domain
 {
     [ExportTsInterface]
-    public class Destination
+    public class Location
     {
         public int Index { get; set; }
         public string Name { get; set; }

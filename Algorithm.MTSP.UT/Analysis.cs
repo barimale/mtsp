@@ -8,11 +8,15 @@ namespace Algorithm.MTSP.UT
 {
     public class Analysis
     {
-        private readonly Engine _engine;
+        private readonly IEngine _engine;
 
-        public Analysis()
+        public Analysis(IEngine engine)
         {
-            _engine = new Engine();
+            _engine = engine;
+
+            _engine.Initialize(
+                "https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrixAsync",
+                "At9XD7ylECHAvO9eXd2v3VU6_k7dmI--fi3cf_wijlUO9cM1UKtrFbTsDJiIToGg");
         }
 
         [Fact]
@@ -21,35 +25,30 @@ namespace Algorithm.MTSP.UT
             // given
             AlgorithmRequest input = new AlgorithmRequest()
             {
-                CPSettings = new CPSettings()
+                Destinations = new List<Location>()
                 {
-                    K = 20,
-                    U = 1,
-                },
-                Destinations = new List<Destination>()
-                {
-                    new Destination()
+                    new Location()
                     {
                         Name = "Central Spot",
                         isMainSpot = true,
                         Latitude = 41.188587372011256M,
                         Longtitude =  -8.64965398820744M,
                     },
-                    new Destination()
+                    new Location()
                     {
                         Name = "First",
                         isMainSpot = false,
                         Latitude = 41.23646377215915M,
                         Longtitude =  -8.66235961518736M,
                     },
-                    new Destination()
+                    new Location()
                     {
                         Name = "Second",
                         isMainSpot = false,
                         Latitude = 41.25357142556481M,
                         Longtitude =  -8.6565884151869M,
                     },
-                    new Destination()
+                    new Location()
                     {
                         Name = "Third",
                         isMainSpot = false,
@@ -81,7 +80,6 @@ namespace Algorithm.MTSP.UT
             Assert.Null(result.Reason);
             Assert.NotNull(result.Data);
             Assert.NotEmpty(result.Data.Checkpoints);
-            Assert.Equal(result.Data.Checkpoints.Count, result.Data.CalculatedAmountOfCheckpoints);
         }
 
         //[Fact]

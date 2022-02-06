@@ -2,6 +2,7 @@
 using Algorithm.MTSP.Model.Requests;
 using Algorithm.MTSP.Model.Responses;
 using AutoMapper;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MTSP.API.Services.Abstractions;
 using MTSP.Database.SQLite.Entries;
@@ -14,16 +15,25 @@ namespace MTSP.API.Services
     public class EventService : IEventService
     {
         private readonly ILogger<EventService> _logger;
-        private readonly Engine _engine;
+        private readonly IEngine _engine;
         private readonly IEventRepository _eventRepoistory;
         private readonly IMapper _mapper;
 
-        public EventService(ILogger<EventService> logger, IEventRepository eventRepoistory, IMapper mapper)
+        public EventService(
+            ILogger<EventService> logger,
+            IEventRepository eventRepoistory,
+            IMapper mapper,
+            IEngine engine,
+            IConfiguration configuration)
         {
-            _engine = new Engine();
             _logger = logger;
             _eventRepoistory = eventRepoistory;
             _mapper = mapper;
+            _engine = engine;
+
+            _engine.Initialize(
+              configuration["BingMapsUrl"],
+              configuration["BingMapsKey"]);
         }
 
         public async Task<dynamic> AddAsync(dynamic item, CancellationToken cancellationToken)

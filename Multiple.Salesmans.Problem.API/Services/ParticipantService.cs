@@ -1,5 +1,6 @@
 ﻿using Algorithm.MTSP;
 using AutoMapper;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MTSP.API.Services.Abstractions;
 using MTSP.Database.SQLite.Entries;
@@ -13,19 +14,25 @@ namespace MTSP.API.Services
     public class ParticipantService : IParticipantService
     {
         private readonly ILogger<ParticipantService> _logger;
-        private readonly Engine _engine;
+        private readonly IEngine _engine;
         private readonly IParticipantRepository _participantRepoistory;
         private readonly IMapper _mapper;
 
         public ParticipantService(
             ILogger<ParticipantService> logger,
             IParticipantRepository participantRepoistory,
-            IMapper mapper)
+            IMapper mapper,
+            IEngine engine,
+            IConfiguration configuration)
         {
-            _engine = new Engine();
             _logger = logger;
             _participantRepoistory = participantRepoistory;
             _mapper = mapper;
+            _engine = engine;
+
+            _engine.Initialize(
+               configuration["BingMapsUrl"],
+               configuration["BingMapsKey"]);
         }
 
         public async Task<dynamic> AddAsync(dynamic item, CancellationToken cancellationToken)

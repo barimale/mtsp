@@ -6,7 +6,7 @@ namespace MTSP.Domain
     public class Checkpoint
     {
         public string PostPersonId { get; set; }
-        public Destination? DestinationDetails { get; set; } = null!;
+        public Location? DestinationDetails { get; set; } = null!;
         public long Order { get; set; }
     }
 }

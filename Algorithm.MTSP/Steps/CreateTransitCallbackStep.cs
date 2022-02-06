@@ -43,7 +43,7 @@ namespace Algorithm.MTSP.Steps
                 // Convert from routing variable Index to distance matrix NodeIndex.
                 var fromNode = _manager.IndexToNode(fromIndex);
                 var toNode = _manager.IndexToNode(toIndex);
-                return input.DistanceMatrix()[fromNode, toNode];
+                return input.DistanceMatrix[fromNode, toNode];
             });
 
             // Define cost of each arc.

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading;
@@ -18,17 +19,19 @@ namespace MTSP.API.Controllers
     public class PairingController : ControllerBase
     {
         private readonly ILogger<PairingController> _logger;
-        private readonly Engine _engine;
+        private readonly IEngine _engine;
 
-        private PairingController()
-        {
-            _engine = new Engine();
-        }
-
-        public PairingController(ILogger<PairingController> logger)
-            : this()
+        public PairingController(
+            ILogger<PairingController> logger,
+            IConfiguration configuration,
+            IEngine engine)
         {
             _logger = logger;
+            _engine = engine;
+
+            _engine.Initialize(
+               configuration["BingMapsUrl"],
+               configuration["BingMapsKey"]);
         }
 
         [HttpPost]
