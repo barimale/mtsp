@@ -1,6 +1,6 @@
 ﻿using Algorithm.MTSP.Abstractions;
 using Algorithm.MTSP.Model.Requests;
-using Google.OrTools.Sat;
+using Google.OrTools.ConstraintSolver;
 using System;
 using System.Threading.Tasks;
 
@@ -8,14 +8,12 @@ namespace Algorithm.MTSP.Steps
 {
     public class BaseStep : IEngineStep
     {
-        protected readonly CpSolver _solver;
-        protected readonly CpModel _model;
-        protected dynamic bag;
+        protected RoutingModel _model;
+        protected RoutingIndexManager _manager;
 
         public BaseStep()
         {
-            _model = new CpModel();
-            _solver = new CpSolver();
+            // intentionally left blank
         }
 
         protected CPSettings CPSettings { get; private set; }
@@ -25,6 +23,12 @@ namespace Algorithm.MTSP.Steps
             try
             {
                 CPSettings = input.CPSettings;
+                _manager = new RoutingIndexManager(
+                    input.NumOfDestinations,
+                    input.NumOfPostmans,
+                    input.Depot);
+
+                _model = new RoutingModel(_manager);
             }
             catch (Exception)
             {

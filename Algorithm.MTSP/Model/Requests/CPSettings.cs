@@ -5,7 +5,8 @@ namespace Algorithm.MTSP.Model.Requests
     [ExportTsInterface]
     public class CPSettings
     {
-        public int K { get; set; } = 1;
-        public int U { get; set; } = 20;
+        public int GlobalSpanCostCoefficient { get; set; } = 100;
+        public long Capacity { get; set; } = 3000;
+        public long SlackMax { get; set; } = 0;
     }
 }
