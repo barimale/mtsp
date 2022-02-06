@@ -1,10 +1,10 @@
 ﻿using DotNet.RestApi.Client;
-using MTSP.Domain;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Location = MTSP.Domain.Location;
 
 namespace Algorithm.MTSP.DistanceMatrixProviders
 {
@@ -25,13 +25,18 @@ namespace Algorithm.MTSP.DistanceMatrixProviders
             this.apiKey = apiKey;
         }
 
-        public async Task<long[,]> CalculateDistanceMatrix(Location origin, List<Location> destinations)
+        public async Task<long[,]> CalculateDistanceMatrix(List<Location> destinations)
         {
             UriBuilder baseUri = new UriBuilder(url);
             baseUri.Query = baseUri.Query + "?";
 
-            string originToAppend = "origins={" + $@"{origin.Latitude},{origin.Longtitude}" + "}";
-            baseUri.Query = baseUri.Query + originToAppend + "&";
+            var originsToAppend = new StringBuilder("origins=");
+            foreach (var destination in destinations)
+            {
+                originsToAppend.Append(@$"{destination.Latitude},{destination.Longtitude};");
+            }
+            originsToAppend.Remove(originsToAppend.Length - 1, 1);
+            baseUri.Query = baseUri.Query + originsToAppend.ToString() + "&";
 
             var destinationsToAppend = new StringBuilder("destinations=");
             foreach (var destination in destinations)
@@ -48,9 +53,17 @@ namespace Algorithm.MTSP.DistanceMatrixProviders
             baseUri.Query = baseUri.Query + apiKeyToAppend;
 
             var response = await _restApiClient.SendJsonRequest(HttpMethod.Get, baseUri.Uri, null);
-            var result = await response.DeseriaseJsonResponseAsync<dynamic[]>();
+            var result = await response.DeseriaseJsonResponseAsync<dynamic>();
+            var results = result.resourceSets[0].resources[0].results;
 
-            return new long[4, 2];
+            var output = new long[destinations.Count, destinations.Count];
+            foreach (dynamic item in results)
+            {
+                output[item.originIndex, item.destinationIndex] = item.travelDuration;
+                output[item.destinationIndex, item.originIndex] = item.travelDuration;
+            }
+
+            return output;
         }
     }
 }

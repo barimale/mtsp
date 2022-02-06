@@ -34,21 +34,23 @@ namespace Algorithm.MTSP.Model.Responses
                     Console.WriteLine("Route for Postperson {0}:", inputData.Postpersons[i].FullName);
                     long routeDistance = 0;
                     var index = model.Start(i);
+                    var orderIndex = 0;
                     while (model.IsEnd(index) == false)
                     {
                         var nodeIndex = manager.IndexToNode((int)index);
                         Console.Write("{0} -> ", nodeIndex);
                         var previousIndex = index;
                         index = solution.Value(model.NextVar(index));
-                        routeDistance += model.GetArcCostForVehicle(previousIndex, index, 0);
+                        routeDistance += model.GetArcCostForVehicle(previousIndex, index, i);
                         checkpoints.Add(new Checkpoint()
                         {
                             PostPersonId = inputData.Postpersons[i].Id,
-                            Order = index, //WIP maybe previous one
+                            Order = orderIndex,
                             DestinationDetails = inputData
                                 .Destinations
-                                .First(p => p.Index == nodeIndex) // or index itself
+                                .FirstOrDefault(p => p.Index == nodeIndex) // or index itself
                         });
+                        orderIndex = orderIndex + 1;
                     }
                     Console.WriteLine("{0}", manager.IndexToNode((int)index));
                     Console.WriteLine("Distance of the route: {0}m", routeDistance);
@@ -63,7 +65,7 @@ namespace Algorithm.MTSP.Model.Responses
                     Status = CpSolverStatus.Feasible,
                 };
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

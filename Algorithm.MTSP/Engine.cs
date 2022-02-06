@@ -38,9 +38,7 @@ namespace Algorithm.MTSP
             try
             {
                 input.DistanceMatrix = await _matrixDistanceProvider.CalculateDistanceMatrix(
-                    input.Origin,
                     input.Destinations
-                        .Where(p => !p.isMainSpot)
                         .ToList());
 
                 await Initialize(input);

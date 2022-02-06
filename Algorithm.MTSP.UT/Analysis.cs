@@ -15,7 +15,7 @@ namespace Algorithm.MTSP.UT
             _engine = engine;
 
             _engine.Initialize(
-                "https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrixAsync",
+                "https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix",
                 "At9XD7ylECHAvO9eXd2v3VU6_k7dmI--fi3cf_wijlUO9cM1UKtrFbTsDJiIToGg");
         }
 
@@ -33,6 +33,7 @@ namespace Algorithm.MTSP.UT
                         isMainSpot = true,
                         Latitude = 41.188587372011256M,
                         Longtitude =  -8.64965398820744M,
+                        Index = 0,
                     },
                     new Location()
                     {
@@ -40,6 +41,7 @@ namespace Algorithm.MTSP.UT
                         isMainSpot = false,
                         Latitude = 41.23646377215915M,
                         Longtitude =  -8.66235961518736M,
+                        Index = 1,
                     },
                     new Location()
                     {
@@ -47,6 +49,7 @@ namespace Algorithm.MTSP.UT
                         isMainSpot = false,
                         Latitude = 41.25357142556481M,
                         Longtitude =  -8.6565884151869M,
+                        Index = 2,
                     },
                     new Location()
                     {
@@ -54,6 +57,7 @@ namespace Algorithm.MTSP.UT
                         isMainSpot = false,
                         Latitude = 41.31521502063901M,
                         Longtitude =  -8.680893486348776M,
+                        Index = 3,
                     }
                 },
                 Postpersons = new List<PostPerson>()
@@ -61,12 +65,14 @@ namespace Algorithm.MTSP.UT
                     new PostPerson()
                     {
                         FullName = "John Foo",
-                        Email = ""
+                        Email = "",
+                        Id = 1,
                     },
                     new PostPerson()
                     {
                         FullName = "Jack Bar",
-                        Email = ""
+                        Email = "",
+                        Id = 2,
                     }
                 }
             };

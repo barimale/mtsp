@@ -7,6 +7,6 @@ namespace Algorithm.MTSP.DistanceMatrixProviders
     public interface IMatrixDistanceProvider
     {
         public void Initialize(string url, string apiKey);
-        public Task<long[,]> CalculateDistanceMatrix(Location origin, List<Location> destinations);
+        public Task<long[,]> CalculateDistanceMatrix(List<Location> destinations);
     }
 }
