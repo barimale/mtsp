@@ -21,7 +21,10 @@ namespace Algorithm.MTSP.DistanceMatrixProviders
 
         public void Initialize(string url, string apiKey)
         {
-            this.url = url;
+            UriBuilder baseUri = new(url);
+            baseUri.Path += "/DistanceMatrix";
+
+            this.url = baseUri.Uri.ToString();
             this.apiKey = apiKey;
         }
 

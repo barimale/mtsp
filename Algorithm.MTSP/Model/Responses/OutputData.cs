@@ -15,6 +15,7 @@ namespace Algorithm.MTSP.Model.Responses
         public CpSolverStatus Status;
         public InputData Input { get; set; }
         public List<Checkpoint> Checkpoints { get; set; }
+        public List<PostpersonalizedWaypoint> Waypoints { get; set; }
 
         public static OutputData From(
             in InputData inputData,

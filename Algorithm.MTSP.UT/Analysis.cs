@@ -15,7 +15,7 @@ namespace Algorithm.MTSP.UT
             _engine = engine;
 
             _engine.Initialize(
-                "https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix",
+                "https://dev.virtualearth.net/REST/v1/Routes",
                 "At9XD7ylECHAvO9eXd2v3VU6_k7dmI--fi3cf_wijlUO9cM1UKtrFbTsDJiIToGg");
         }
 

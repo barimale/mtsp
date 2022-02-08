@@ -11,6 +11,7 @@ namespace Algorithm.MTSP
         {
             services.AddScoped<IEngine, Engine>();
             services.AddScoped<IMatrixDistanceProvider, BingMapProvider>();
+            services.AddScoped<IRouteProvider, BingMapRouteProvider>();
             services.AddTransient<RestApiClient>();
             services.AddHttpClient<RestApiClient>().AddTransientHttpErrorPolicy(p => p.RetryAsync(retryAttempts));
         }
