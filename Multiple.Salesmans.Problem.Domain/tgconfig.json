@@ -7,13 +7,11 @@
   "tabLength": 2,
   "explicitPublicAccessor": true,
   "defaultValuesForTypes": {
-    "number": "-1",
     "Date | null": "null",
     "string": "\"\""
   },
   "customTypeMappings": {
     "System.DateTime": "string",
-    "Some.Custom.Type": "number"
   },
   "typeUnionsForTypes": {
     "string": [ "null", "undefined" ],
