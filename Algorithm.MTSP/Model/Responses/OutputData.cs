@@ -1,7 +1,7 @@
-﻿using Algorithm.MTSP.Model.Requests;
+﻿using Algorithm.MTSP.Domain;
+using Algorithm.MTSP.Model.Requests;
 using Google.OrTools.ConstraintSolver;
 using Google.OrTools.Sat;
-using MTSP.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;

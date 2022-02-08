@@ -1,4 +1,4 @@
-﻿using MTSP.Domain;
+﻿using Algorithm.MTSP.Domain;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

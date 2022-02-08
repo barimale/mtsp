@@ -1,6 +1,6 @@
 ﻿using TypeGen.Core.TypeAnnotations;
 
-namespace MTSP.Domain
+namespace Algorithm.MTSP.Domain
 {
     [ExportTsInterface]
     public class PostPerson

@@ -1,5 +1,5 @@
+using Algorithm.MTSP.Domain;
 using Algorithm.MTSP.Model.Requests;
-using MTSP.Domain;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;

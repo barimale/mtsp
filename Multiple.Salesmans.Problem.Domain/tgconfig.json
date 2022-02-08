@@ -11,9 +11,10 @@
     "string": "\"\""
   },
   "customTypeMappings": {
-    "System.DateTime": "string",
+    "System.DateTime": "string"
   },
   "typeUnionsForTypes": {
+    "MTSP.Domain.Location": [ "undefined" ],
     "string": [ "null", "undefined" ],
     "Date": [ "string" ]
   },

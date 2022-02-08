@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Location = MTSP.Domain.Location;
+using Location = Algorithm.MTSP.Domain.Location;
 
 namespace Algorithm.MTSP.DistanceMatrixProviders
 {
