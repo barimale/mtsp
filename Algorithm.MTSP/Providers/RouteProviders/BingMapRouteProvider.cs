@@ -29,47 +29,54 @@ namespace Algorithm.MTSP.DistanceMatrixProviders
 
         public async Task<List<Waypoint>> GetRoutes(List<Checkpoint> checkpoints)
         {
-            UriBuilder baseUri = new UriBuilder(url);
-            baseUri.Path += "/walking";
-
-            var wayPointsToAppend = new StringBuilder();
-            var wayPointEnumerator = 1;
-            foreach (var checkpoint in checkpoints)
+            try
             {
-                wayPointsToAppend.Append(@$"{TryGetSeparator(wayPointEnumerator)}{GetAlias(wayPointEnumerator)}.{wayPointEnumerator}={checkpoint.DestinationDetails.Longtitude},{checkpoint.DestinationDetails.Latitude}");
-                wayPointEnumerator += 1;
-            }
-            wayPointsToAppend.Append(@$"&{GetAlias(1)}.{checkpoints.Count + 1}={checkpoints.First().DestinationDetails.Longtitude},{checkpoints.First().DestinationDetails.Latitude}");
+                UriBuilder baseUri = new UriBuilder(url);
+                baseUri.Path += "/walking";
 
-            baseUri.Query += wayPointsToAppend.ToString();
-
-            string optimizeModeToAppend = "&optimize=distance";
-            baseUri.Query += optimizeModeToAppend;
-
-            string apiKeyToAppend = $@"&key={apiKey}";
-            baseUri.Query += apiKeyToAppend;
-
-            var response = await _restApiClient.SendJsonRequest(HttpMethod.Get, baseUri.Uri, null);
-            var result = await response.DeseriaseJsonResponseAsync<Response>();
-
-            if (result.StatusCode != 200)
-            {
-                throw new Exception(string.Join(',', result.ErrorDetails));
-            }
-
-            var resultAsDynamic = await response.DeseriaseJsonResponseAsync<dynamic>();
-            var results = resultAsDynamic.resourceSets[0].resources[0].results;
-
-            var waypoints = new List<Waypoint>();
-            foreach (dynamic item in results)
-            {
-                waypoints.Add(new Waypoint()
+                var wayPointsToAppend = new StringBuilder();
+                var wayPointEnumerator = 1;
+                foreach (var checkpoint in checkpoints)
                 {
+                    wayPointsToAppend.Append(@$"{TryGetSeparator(wayPointEnumerator)}{GetAlias(wayPointEnumerator)}.{wayPointEnumerator}={checkpoint.DestinationDetails.Longtitude},{checkpoint.DestinationDetails.Latitude}");
+                    wayPointEnumerator += 1;
+                }
+                wayPointsToAppend.Append(@$"&{GetAlias(1)}.{checkpoints.Count + 1}={checkpoints.First().DestinationDetails.Longtitude},{checkpoints.First().DestinationDetails.Latitude}");
 
-                });
+                baseUri.Query += wayPointsToAppend.ToString();
+
+                string optimizeModeToAppend = "&optimize=distance";
+                baseUri.Query += optimizeModeToAppend;
+
+                string apiKeyToAppend = $@"&key={apiKey}";
+                baseUri.Query += apiKeyToAppend;
+
+                var response = await _restApiClient.SendJsonRequest(HttpMethod.Get, baseUri.Uri, null);
+                var result = await response.DeseriaseJsonResponseAsync<Response>();
+
+                if (result.StatusCode != 200)
+                {
+                    throw new Exception(string.Join(',', result.ErrorDetails));
+                }
+
+                var resultAsDynamic = await response.DeseriaseJsonResponseAsync<dynamic>();
+                var results = resultAsDynamic.resourceSets[0].resources[0].results;
+
+                var waypoints = new List<Waypoint>();
+                foreach (dynamic item in results)
+                {
+                    waypoints.Add(new Waypoint()
+                    {
+
+                    });
+                }
+
+                return waypoints;
             }
-
-            return waypoints;
+            catch (Exception)
+            {
+                return new List<Waypoint>();
+            }
         }
 
         private string TryGetSeparator(int index)
