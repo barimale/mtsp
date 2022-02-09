@@ -1,12 +1,14 @@
 ﻿using Algorithm.MTSP.Domain;
 using BingMapsRESTToolkit;
 using DotNet.RestApi.Client;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Waypoint = Algorithm.MTSP.Domain.Waypoint;
 
 namespace Algorithm.MTSP.DistanceMatrixProviders
 {
@@ -60,18 +62,31 @@ namespace Algorithm.MTSP.DistanceMatrixProviders
                 }
 
                 var resultAsDynamic = await response.DeseriaseJsonResponseAsync<dynamic>();
-                var results = resultAsDynamic.resourceSets.resources.results;
+                string json = await response.Content.ReadAsStringAsync();
+                var resourceSets = resultAsDynamic.resourceSets[0] as dynamic;
+                var resource = resourceSets.resources[0] as dynamic;
+                Route route = JsonConvert.DeserializeObject<Route>(resource.ToString());
 
                 var waypoints = new List<Waypoint>();
-                foreach (dynamic item in results)
+                foreach (var item in route.RouteLegs)
                 {
-                    waypoints.Add(new Waypoint()
+                    foreach (var subleg in item.RouteSubLegs)
                     {
+                        waypoints.Add(new Waypoint()
+                        {
+                            Latitude = subleg.StartWaypoint.Coordinates[0],
+                            Longtitude = subleg.StartWaypoint.Coordinates[1],
 
-                    });
+                        });
+                        waypoints.Add(new Waypoint()
+                        {
+                            Latitude = subleg.EndWaypoint.Coordinates[0],
+                            Longtitude = subleg.EndWaypoint.Coordinates[1],
+                        });
+                    }
                 }
 
-                return waypoints;
+                return waypoints.Distinct().ToList();
             }
             catch (Exception)
             {

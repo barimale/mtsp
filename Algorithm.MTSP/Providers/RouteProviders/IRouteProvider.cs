@@ -1,7 +1,7 @@
 ﻿using Algorithm.MTSP.Domain;
-using BingMapsRESTToolkit;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Waypoint = Algorithm.MTSP.Domain.Waypoint;
 
 namespace Algorithm.MTSP.DistanceMatrixProviders
 {
