@@ -1,7 +1,8 @@
-﻿using Algorithm.MTSP.DistanceMatrixProviders;
-using Algorithm.MTSP.Domain;
+﻿using Algorithm.MTSP.Domain;
 using Algorithm.MTSP.Model.Requests;
 using Algorithm.MTSP.Model.Responses;
+using Algorithm.MTSP.Providers.DistanceMatrixProviders;
+using Algorithm.MTSP.Providers.RouteProviders;
 using Algorithm.MTSP.Steps;
 using Google.OrTools.ConstraintSolver;
 using Google.OrTools.Sat;

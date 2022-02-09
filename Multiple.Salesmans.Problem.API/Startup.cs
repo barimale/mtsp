@@ -8,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using MTSP.API.Services;
+using MTSP.API.Services.Abstractions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +27,9 @@ namespace MTSP.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IAuthorizeService, AuthorizeService>();
+            services.AddScoped<IEventService, EventService>();
+            services.AddScoped<IParticipantService, ParticipantService>();
             services.AddMTSPWithDefaultProviders(retryAttempts: 5);
             services.AddCors();
 

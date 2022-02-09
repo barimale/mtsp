@@ -1,4 +1,4 @@
-﻿using MTSP.Domain;
+﻿using Algorithm.MTSP.Domain;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MTSP.Database.SQLite.Entries

@@ -1,4 +1,5 @@
-﻿using Algorithm.MTSP.DistanceMatrixProviders;
+﻿using Algorithm.MTSP.Providers.DistanceMatrixProviders;
+using Algorithm.MTSP.Providers.RouteProviders;
 using DotNet.RestApi.Client;
 using Microsoft.Extensions.DependencyInjection;
 using Polly;
@@ -6,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Algorithm.MTSP
 {
-    public static class RegisterServices
+    public static class ServiceCollectionExtension
     {
         public static void AddMTSPWithDefaultProviders(this IServiceCollection services, int retryAttempts = 3)
         {

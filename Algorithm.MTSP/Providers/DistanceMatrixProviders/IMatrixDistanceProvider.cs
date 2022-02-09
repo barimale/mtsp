@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Algorithm.MTSP.DistanceMatrixProviders
+namespace Algorithm.MTSP.Providers.DistanceMatrixProviders
 {
     public interface IMatrixDistanceProvider
     {

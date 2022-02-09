@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Location = Algorithm.MTSP.Domain.Location;
 
-namespace Algorithm.MTSP.DistanceMatrixProviders
+namespace Algorithm.MTSP.Providers.DistanceMatrixProviders
 {
     internal class BingMapProvider : IMatrixDistanceProvider
     {

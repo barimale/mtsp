@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Waypoint = Algorithm.MTSP.Domain.Waypoint;
 
-namespace Algorithm.MTSP.DistanceMatrixProviders
+namespace Algorithm.MTSP.Providers.RouteProviders
 {
     public interface IRouteProvider
     {

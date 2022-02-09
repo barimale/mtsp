@@ -1,6 +1,6 @@
-﻿using AutoMapper;
+﻿using Algorithm.MTSP.Domain;
+using AutoMapper;
 using MTSP.Database.SQLite.Entries;
-using MTSP.Domain;
 
 namespace MTSP.Database.SQLite.Extensions
 {
