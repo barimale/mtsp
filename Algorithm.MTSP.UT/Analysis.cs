@@ -99,9 +99,9 @@ namespace Algorithm.MTSP.UT
             // then
             Assert.NotNull(result);
             Assert.False(result.IsError);
-            Assert.Null(result.Reason);
+            Assert.Empty(result.Reason);
             Assert.NotNull(result.Data);
-            Assert.NotEmpty(result.Data.Checkpoints);
+            Assert.Equal(result.Data.Checkpoints.Count, (input.NumOfDestinations - 1) + input.NumOfPostmans * 1);
         }
 
         //[Fact]
