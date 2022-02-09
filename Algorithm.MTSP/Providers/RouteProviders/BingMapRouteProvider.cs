@@ -38,10 +38,10 @@ namespace Algorithm.MTSP.DistanceMatrixProviders
                 var wayPointEnumerator = 1;
                 foreach (var checkpoint in checkpoints)
                 {
-                    wayPointsToAppend.Append(@$"{TryGetSeparator(wayPointEnumerator)}{GetAlias(wayPointEnumerator)}.{wayPointEnumerator}={checkpoint.DestinationDetails.Longtitude},{checkpoint.DestinationDetails.Latitude}");
+                    wayPointsToAppend.Append(@$"{TryGetSeparator(wayPointEnumerator)}{GetAlias(wayPointEnumerator)}.{wayPointEnumerator}={checkpoint.DestinationDetails.Latitude},{checkpoint.DestinationDetails.Longtitude}");
                     wayPointEnumerator += 1;
                 }
-                wayPointsToAppend.Append(@$"&{GetAlias(1)}.{checkpoints.Count + 1}={checkpoints.First().DestinationDetails.Longtitude},{checkpoints.First().DestinationDetails.Latitude}");
+                wayPointsToAppend.Append(@$"&{GetAlias(1)}.{checkpoints.Count + 1}={checkpoints.First().DestinationDetails.Latitude},{checkpoints.First().DestinationDetails.Longtitude}");
 
                 baseUri.Query += wayPointsToAppend.ToString();
 
@@ -60,7 +60,7 @@ namespace Algorithm.MTSP.DistanceMatrixProviders
                 }
 
                 var resultAsDynamic = await response.DeseriaseJsonResponseAsync<dynamic>();
-                var results = resultAsDynamic.resourceSets[0].resources[0].results;
+                var results = resultAsDynamic.resourceSets.resources.results;
 
                 var waypoints = new List<Waypoint>();
                 foreach (dynamic item in results)
