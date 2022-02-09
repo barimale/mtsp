@@ -32,7 +32,7 @@
 </ItemGroup>
 
 <ItemGroup>
-  <ProjectReference Include="..\Multiple.Salesmans.Problem.Domain\MTSP.Domain.csproj" />
+  <ProjectReference Include="..\Algorithm.MTSP\Algorithm.MTSP.csproj" />
 </ItemGroup>
 
 </Project>

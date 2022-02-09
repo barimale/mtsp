@@ -6,7 +6,7 @@ namespace Algorithm.MTSP.UT
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMTSP();
+            services.AddMTSPWithDefaultProviders(retryAttempts: 5);
         }
     }
 }

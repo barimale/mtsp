@@ -1,10 +1,16 @@
 using Algorithm.MTSP;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace MTSP.API
 {
@@ -19,56 +25,54 @@ namespace MTSP.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMTSP(retryAttempts: 5);
-
+            services.AddMTSPWithDefaultProviders(retryAttempts: 5);
             services.AddCors();
 
-            //var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["Tokens:Key"]));
-            //services.AddAuthentication(options =>
-            //{
-            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    //options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //}).AddJwtBearer(config =>
-            //{
-            //    config.RequireHttpsMetadata = false;
-            //    config.SaveToken = true;
-            //    config.TokenValidationParameters = new TokenValidationParameters()
-            //    {
-            //        //TODO: false to true invetigate twhat needs to be corrected
-            //        IssuerSigningKey = signingKey,
-            //        ValidateAudience = false,
-            //        ValidAudience = Configuration["Tokens:Audience"],
-            //        ValidateIssuer = false,
-            //        ValidIssuer = Configuration["Tokens:Issuer"],
-            //        ValidateLifetime = false,
-            //        ValidateIssuerSigningKey = false
-            //    };
-            //});
+            var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["Tokens:Key"]));
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(config =>
+            {
+                config.RequireHttpsMetadata = false;
+                config.SaveToken = true;
+                config.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    //TODO: false to true invetigate twhat needs to be corrected
+                    IssuerSigningKey = signingKey,
+                    ValidateAudience = false,
+                    ValidAudience = Configuration["Tokens:Audience"],
+                    ValidateIssuer = false,
+                    ValidIssuer = Configuration["Tokens:Issuer"],
+                    ValidateLifetime = false,
+                    ValidateIssuerSigningKey = false
+                };
+            });
 
             services.AddSignalR();
-            //services.AddRouting(options => options.LowercaseUrls = true);
-            //services.AddControllers();
+            services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddControllers();
 
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "MTSP-API", Version = "v1" });
-            //    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
-            //    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-            //    {
-            //        Description = "JWT Authorization header using the bearer scheme",
-            //        Name = "Authorization",
-            //        In = ParameterLocation.Header,
-            //        Type = SecuritySchemeType.ApiKey
-            //    });
-            //    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-            //    {
-            //        {new OpenApiSecurityScheme{Reference = new OpenApiReference
-            //        {
-            //            Id = "Bearer",
-            //            Type = ReferenceType.SecurityScheme
-            //        }}, new List<string>()}
-            //    });
-            //});
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MTSP-API", Version = "v1" });
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT Authorization header using the bearer scheme",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {new OpenApiSecurityScheme{Reference = new OpenApiReference
+                    {
+                        Id = "Bearer",
+                        Type = ReferenceType.SecurityScheme
+                    }}, new List<string>()}
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -91,18 +95,18 @@ namespace MTSP.API
                 //p.WithOrigins("http://localhost:3008").AllowCredentials();
             });
 
-            //app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
 
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllers();
-            //});
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

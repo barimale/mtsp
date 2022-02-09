@@ -20,8 +20,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTSP.API", "Multiple.Salesm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTSP.Database.SQLite", "Multiple.Salesmans.Problem.Database.SQLite\MTSP.Database.SQLite.csproj", "{63307AA6-E817-4F11-B2C5-81F5CB62372C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTSP.Domain", "Multiple.Salesmans.Problem.Domain\MTSP.Domain.csproj", "{C8B3495E-CA72-4B0F-B333-BCDBAC52AF8B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,10 +42,6 @@ Global
 		{63307AA6-E817-4F11-B2C5-81F5CB62372C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63307AA6-E817-4F11-B2C5-81F5CB62372C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63307AA6-E817-4F11-B2C5-81F5CB62372C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8B3495E-CA72-4B0F-B333-BCDBAC52AF8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8B3495E-CA72-4B0F-B333-BCDBAC52AF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8B3495E-CA72-4B0F-B333-BCDBAC52AF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8B3495E-CA72-4B0F-B333-BCDBAC52AF8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Algorithm.MTSP\Algorithm.MTSP.csproj" />
     <ProjectReference Include="..\Multiple.Salesmans.Problem.Database.SQLite\MTSP.Database.SQLite.csproj" />
   </ItemGroup>
 
