@@ -1,4 +1,5 @@
 ﻿using Algorithm.MTSP;
+using Algorithm.MTSP.Domain;
 using Algorithm.MTSP.Model.Requests;
 using Algorithm.MTSP.Model.Responses;
 using AutoMapper;
@@ -36,7 +37,7 @@ namespace MTSP.API.Services
               configuration["BingMapsKey"]);
         }
 
-        public async Task<dynamic> AddAsync(dynamic item, CancellationToken cancellationToken)
+        public async Task<GiftEvent> AddAsync(GiftEvent item, CancellationToken cancellationToken)
         {
             var mapped = _mapper.Map<EventEntry>(item);
             var added = await _eventRepoistory.AddAsync(mapped, cancellationToken);
@@ -44,14 +45,14 @@ namespace MTSP.API.Services
             return _mapper.Map<dynamic>(added);
         }
 
-        public async Task<dynamic> GetByIdAsync(string id, CancellationToken cancellationToken)
+        public async Task<GiftEvent> GetByIdAsync(string id, CancellationToken cancellationToken)
         {
             var found = await _eventRepoistory.GetByIdAsync(id, cancellationToken);
 
-            return _mapper.Map<dynamic>(found);
+            return _mapper.Map<GiftEvent>(found);
         }
 
-        public async Task<AlgorithmResponse> ExecuteAsync(dynamic existed, CancellationToken cancellationToken = default)
+        public async Task<AlgorithmResponse> ExecuteAsync(GiftEvent existed, CancellationToken cancellationToken = default)
         {
             try
             {

@@ -1,4 +1,5 @@
 ﻿using Algorithm.MTSP;
+using Algorithm.MTSP.Domain;
 using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -35,7 +36,7 @@ namespace MTSP.API.Services
                configuration["BingMapsKey"]);
         }
 
-        public async Task<dynamic> AddAsync(dynamic item, CancellationToken cancellationToken)
+        public async Task<Participant> AddAsync(Participant item, CancellationToken cancellationToken)
         {
             var mapped = _mapper.Map<ParticipantEntry>(item);
             var added = await _participantRepoistory.AddAsync(mapped, cancellationToken);
@@ -63,28 +64,28 @@ namespace MTSP.API.Services
             return deleted;
         }
 
-        public async Task<dynamic[]> GetAllAsync(string eventId, CancellationToken? cancellationToken = null)
+        public async Task<Participant[]> GetAllAsync(string eventId, CancellationToken? cancellationToken = null)
         {
             var found = await _participantRepoistory.GetAllAsync(eventId, cancellationToken);
 
             return found.
-                Select(p => _mapper.Map<dynamic>(p))
+                Select(p => _mapper.Map<Participant>(p))
                 .ToArray();
         }
 
-        public async Task<dynamic> GetByIdAsync(string id, CancellationToken cancellationToken)
+        public async Task<Participant> GetByIdAsync(string id, CancellationToken cancellationToken)
         {
             var found = await _participantRepoistory.GetByIdAsync(id, cancellationToken);
 
-            return _mapper.Map<dynamic>(found);
+            return _mapper.Map<Participant>(found);
         }
 
-        public async Task<dynamic> UpdateAsync(dynamic item, CancellationToken cancellationToken)
+        public async Task<Participant> UpdateAsync(Participant item, CancellationToken cancellationToken)
         {
             var mapped = _mapper.Map<ParticipantEntry>(item);
             var updated = await _participantRepoistory.UpdateAsync(mapped, cancellationToken);
 
-            return _mapper.Map<dynamic>(updated);
+            return _mapper.Map<Participant>(updated);
         }
     }
 }
