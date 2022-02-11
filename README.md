@@ -7,6 +7,14 @@
 - [STEP E] Display result on map.
 - [STEP F] Send result via email - optional
 
+# Improvements
+- Maximal weight of backpack,
+- Typical time per building spending for maintenance,
+- Field with summarized break per shift - maximal limit of hours per route is going to be reduced by that value
+- Investigate: private map server with private route service:
+-- possibility to define custom routes to optimize route later on.
+- postperson amount advisor - suggest how many postpersons should maintain the route in optimal way based on historical data.
+
 # Mini-server configuration
 ```
 Public IP: 94.132.173.156
