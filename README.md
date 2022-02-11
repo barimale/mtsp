@@ -15,28 +15,6 @@
 -- possibility to define custom routes to optimize route later on.
 - postperson amount advisor - suggest how many postpersons should maintain the route in optimal way based on historical data.
 
-# Mini-server configuration
-```
-Public IP: 94.132.173.156
-Local IP: 192.168.2.100
-
-username: albergue
-password: albergue 
-```
-
-```
-scp -r ./bin/Release/net5.0/publish/* albergue@192.168.2.100:/var/www/albergue.administrator
-
-sudo cp ./Properties/albergue-administrator.service /etc/systemd/system/albergue-administrator.service
-sudo systemctl daemon-reload
-cd /etc/systemd/system
-sudo systemctl enable albergue-administrator.service
-sudo sudo journalctl -fu albergue-administrator.service
-
-```
-
-https://localhost:5021;
-
 # Format and lint
 ```
 dotnet tool install -g dotnet-format
@@ -82,11 +60,6 @@ dotnet ef database update --connection "Data Source=gifter.db"
 Nuget: invalid data while decoding:
 ```
 dotnet nuget locals all --clear
-```
-
-# Algorithm
-```
-https://developers.google.com/optimization/assignment/assignment_example
 ```
 
 # Heroku deployment
