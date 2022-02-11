@@ -1,3 +1,12 @@
+# Scenario
+- [STEP A] Provide list of postpersons,
+- [STEP B] Provide main spot together with places which have to be visited (raw json only),
+- [STEP C] Provide some assumptions like: maximal limit of hours per route - optional,
+- [STEP D] Display them on map as a form of review,
+- [STEP D -> STEP E] Send data to backend to calculate subroutes per postperson,
+- [STEP E] Display result on map.
+- [STEP F] Send result via email - optional
+
 # Mini-server configuration
 ```
 Public IP: 94.132.173.156
