@@ -10,5 +10,6 @@ namespace Algorithm.MTSP.Domain
         public decimal Longtitude { get; set; }
         public decimal Latitude { get; set; }
         public bool isMainSpot { get; set; } = false;
+        public LocationSettings? LocationSettings = null;
     }
 }
