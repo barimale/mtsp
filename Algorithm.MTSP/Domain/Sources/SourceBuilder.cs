@@ -1,4 +1,6 @@
-public class SourceBuilder
+namespace Algorithm.MTSP.Domain.Sources
+{
+    public class SourceBuilder
     {
         private string url;
         private AuthorizationType authorizationType;
@@ -25,3 +27,4 @@ public class SourceBuilder
             );
         }
     }
+}
