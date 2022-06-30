@@ -11,5 +11,6 @@ namespace Algorithm.MTSP.Domain
         public string FullName { get; set; } = "";
         public IEnumerable<Region> Regions { get; set; } = new List<Region>();
         public Location PostDepot {get; set;}
+        public IEnumerable<PostPerson> PostPersons { get; set;} = new List<PostPerson>();
     }
 }
