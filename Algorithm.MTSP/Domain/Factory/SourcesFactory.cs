@@ -1,6 +1,6 @@
 namespace Algorithm.MTSP.Domain.Factory
 {
-    public static class SourcesFactory
+    public class SourcesFactory
     {
         public static SourceBuilder CreateSource()
         {
