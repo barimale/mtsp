@@ -2,9 +2,6 @@ namespace Algorithm.MTSP.Domain
 {
     public static class DomainFactory
     {
-        public static SourceBuilder CreateSource()
-        {
-            return new SourceBuilder();
-        }
+        public SourcesFactory SourcesFactory { get;} = new SourcesFactory();
     }
 }
