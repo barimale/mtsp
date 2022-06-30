@@ -1,4 +1,4 @@
-namespace Algorithm.MTSP.Domain
+namespace Algorithm.MTSP.Domain.Factory
 {
     public static class DomainFactory
     {
