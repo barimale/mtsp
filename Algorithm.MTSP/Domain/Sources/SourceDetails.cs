@@ -4,9 +4,15 @@ namespace Algorithm.MTSP.Domain.Sources
 {
     // maybe better to use already existed class from nuget - need to check it
     [ExportTsInterface]
-    public class SourceDetails
+    protected internal class SourceDetails
     {
-        public string URL { get; set; }
-        public AuthorizationType AuthorizationType { get; set; }
+        protected internal SourceDetails(string url, AuthorizationType authorizationType)
+        {
+            this.URL = url;
+            this.AuthorizationType = authorizationType;
+        }
+
+        protected internal string URL { public get; set; }
+        protected internal AuthorizationType AuthorizationType { public get; set; }
     }
 }
