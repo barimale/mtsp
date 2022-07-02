@@ -16,5 +16,6 @@ namespace Algorithm.MTSP.Model.Requests
         public Location Origin => Destinations.Single(p => p.isMainSpot);
         public int Depot => Origin.Index;
         public long[,] DistanceMatrix { get; set; }
+        public decimal[,] WeightMatrix { get; set; }
     }
 }
