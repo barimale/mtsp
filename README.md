@@ -1,3 +1,9 @@
+# InstantWebApi
+- build an instant database layer by using it as described here:
+```
+www.instantwebapi.com/#/
+```
+
 # Scenario
 - [STEP A] Provide list of postpersons,
 - [STEP B] Provide main spot together with places which have to be visited (raw json only),
