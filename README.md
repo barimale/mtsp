@@ -1,3 +1,11 @@
+# Packages to use and some ideas:
+```
+- linqtodb nuget,
+- slapper.automapper nuget,
+- .net core workflow for automatization background tasks + document-based db for configuration / or by using fluent AP
+- table for tunned params in the context of specific postperson (*- optional)
+```
+
 # InstantWebApi
 - build an instant database layer by using it as described here:
 ```
