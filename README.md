@@ -1,3 +1,31 @@
+# Design
+
+# Architectural challenges
+```
+- Use saga redux and implement event sourcing and cqrs at the backend and make it async with UI,
+- microservices solution:
+-- workflows engine as a separate service having its own database + save request and response in db,
+-- route server on premise + custom routes registration service(* - optional),
+-- map server on premise,
+-- lease service for postcenter registration, publishing lease requests with its own db,
+- Mobile app(expo framework) for salesman:
+-- Route for Today,
+-- Notification about being relocated/leased to another postcenter,
+-- Tracker worker for route server (in case there is more optimal/comfortable way then already calculated)
+- Main App UI:
+-- wizard-form fully customizable by using react dynamic grid layout npm package,
+-- steps avalaible depending on the user - type,
+-- External Data Source and Mapping, Salespersons and Regions only by Manager and SuperAdmin, Custom Workflows also,
+-- Some steps visible in conditional way,
+-- maybe Stats step  
+-- for salesperson read-only access only,
+-- possibility to download mobile app from the main app.
+- solution fully dockerized to have nice developer environment + Azure Devops + UAT.
+- Log Server, Map Server, Route Server, Delivery Server, Main Server: PostCenterRegistration,LeaseWorkersService, Workflow service,
+- builders for the rest of domain definitions,
+- put them to factory, 
+```
+
 # Main Algorithm approaches:
 - OR.Tools linear constraint programming,
 - HCALS TSP,
