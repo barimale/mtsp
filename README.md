@@ -1,4 +1,5 @@
 # Design
+![Architecture concept for design.png](./design.jpg)
 
 # Architectural challenges
 ```
