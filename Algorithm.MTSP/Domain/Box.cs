@@ -3,6 +3,7 @@ using TypeGen.Core.TypeAnnotations;
 
 namespace Algorithm.MTSP.Domain
 {
+    [ExportTsInterface]
     public class Box: Equipment
     {
         public Dimensions Dimensions { get; set; }
