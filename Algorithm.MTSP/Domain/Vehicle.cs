@@ -6,7 +6,7 @@ namespace Algorithm.MTSP.Domain
     [ExportTsInterface]
     public class Vehicle: Equipment
     {
-        public Dimensions RearBoxDimensions { get; set; }
+        public Dimensions Dimensions { get; set; } // trunk of the car, trunk of the motorcycle/scooter
         public string OwnerId {get; set;}
         public string PostCenterId {get; set;}
         public override int GetCapacityInCubicCentimeters()
