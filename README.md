@@ -1,5 +1,6 @@
 # Packages to use and some ideas:
 ```
+- react dynamic grid layout + table for custom user configuration,
 - linqtodb nuget,
 - slapper.automapper nuget,
 - .net core workflow for automatization background tasks + document-based db for configuration / or by using fluent AP
