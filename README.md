@@ -1,3 +1,12 @@
+# Main Algorithm approaches:
+- OR.Tools linear constraint programming,
+- HCALS TSP,
+- REST API to quantum computing equivalent of the solution A or B(Qiskit Quantum TSP).
+
+# Some optional features for the next stage:
+- fuel eco contraint,
+- delivery by car/scrooter/motorcycle.
+
 # Packages to use and some ideas:
 ```
 - react dynamic grid layout + table for custom user configuration,
