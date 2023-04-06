@@ -14,10 +14,6 @@
     <PackageReference Include="TypeGen" Version="3.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Multiple.Salesmans.Problem.Domain\MTSP.Domain.csproj" />
-  </ItemGroup>
-
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Debug'">
 		<Exec Command="dotnet-typegen --project-folder  . generate&#xD;&#xA;" />
 	</Target>

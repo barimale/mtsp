@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TypeGen.Core.TypeAnnotations;
 
 namespace Algorithm.MTSP.Domain

@@ -5,15 +5,21 @@ namespace Algorithm.MTSP.Domain.Sources
     // maybe better to use already existed class from nuget - need to check it
     // maybe public only assuming that it has to be reused later on at the UI level.
     [ExportTsInterface]
-    protected internal class SourceDetails
+    public class SourceDetails
     {
-        protected internal SourceDetails(string url, AuthorizationType authorizationType)
+        public SourceDetails(string url, AuthorizationType authorizationType)
         {
             this.URL = url;
             this.AuthorizationType = authorizationType;
         }
 
-        protected internal string URL { public get; set; }
-        protected internal AuthorizationType AuthorizationType { public get; set; }
+        public string URL { get; set; }
+        public AuthorizationType AuthorizationType { get; set; }
+    }
+
+    [ExportTsInterface]
+    public class AuthorizationType
+    {
+        // it needs to be modified as described above
     }
 }

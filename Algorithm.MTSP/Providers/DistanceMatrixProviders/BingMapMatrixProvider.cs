@@ -55,6 +55,8 @@ namespace Algorithm.MTSP.Providers.DistanceMatrixProviders
             string apiKeyToAppend = $@"key={apiKey}";
             baseUri.Query = baseUri.Query + apiKeyToAppend;
 
+            // TODO maybe replace it as described below:
+            // https://learn.microsoft.com/en-us/bingmaps/rest-services/routes/calculate-a-distance-matrix
             var response = await _restApiClient.SendJsonRequest(HttpMethod.Get, baseUri.Uri, null);
             var result = await response.DeseriaseJsonResponseAsync<dynamic>();
             var results = result.resourceSets[0].resources[0].results;

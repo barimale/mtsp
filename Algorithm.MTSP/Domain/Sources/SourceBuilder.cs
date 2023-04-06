@@ -5,14 +5,14 @@ namespace Algorithm.MTSP.Domain.Sources
         private string url;
         private AuthorizationType authorizationType;
 
-        public SourceDetails WithUrl(string url)
+        public SourceBuilder WithUrl(string url)
         {
             this.url = url;
 
             return this;
         }
 
-        public SourceDetails WithAuthorizationType(AuthorizationType authorizationType)
+        public SourceBuilder WithAuthorizationType(AuthorizationType authorizationType)
         {
             this.authorizationType = authorizationType;
             
