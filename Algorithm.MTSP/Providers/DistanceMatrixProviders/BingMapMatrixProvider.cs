@@ -1,6 +1,8 @@
 ﻿using DotNet.RestApi.Client;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +12,8 @@ namespace Algorithm.MTSP.Providers.DistanceMatrixProviders
 {
     internal class BingMapProvider : IMatrixDistanceProvider
     {
+        private readonly NumberFormatInfo nfi = new NumberFormatInfo();
+
         private readonly RestApiClient _restApiClient;
         private string url;
         private string apiKey;
@@ -17,6 +21,9 @@ namespace Algorithm.MTSP.Providers.DistanceMatrixProviders
         public BingMapProvider(RestApiClient restApiClient)
         {
             _restApiClient = restApiClient;
+
+            nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
         }
 
         public void Initialize(string url, string apiKey)
@@ -34,17 +41,17 @@ namespace Algorithm.MTSP.Providers.DistanceMatrixProviders
             baseUri.Query = baseUri.Query + "?";
 
             var originsToAppend = new StringBuilder("origins=");
-            foreach (var destination in destinations)
+            foreach (var destination in destinations.Where(p => p.isMainSpot))
             {
-                originsToAppend.Append(@$"{destination.Latitude},{destination.Longtitude};");
+                originsToAppend.Append(@$"{destination.Latitude.ToString(nfi)},{destination.Longtitude.ToString(nfi)};");
             }
             originsToAppend.Remove(originsToAppend.Length - 1, 1);
             baseUri.Query = baseUri.Query + originsToAppend.ToString() + "&";
 
             var destinationsToAppend = new StringBuilder("destinations=");
-            foreach (var destination in destinations)
+            foreach (var destination in destinations.Where(p => !p.isMainSpot))
             {
-                destinationsToAppend.Append(@$"{destination.Latitude},{destination.Longtitude};");
+                destinationsToAppend.Append(@$"{destination.Latitude.ToString(nfi)},{destination.Longtitude.ToString(nfi)};");
             }
             destinationsToAppend.Remove(destinationsToAppend.Length - 1, 1);
             baseUri.Query = baseUri.Query + destinationsToAppend.ToString() + "&";
