@@ -103,32 +103,5 @@ namespace Algorithm.MTSP.UT
             Assert.NotNull(result.Data);
             Assert.Equal(result.Data.Checkpoints.Count, (input.NumOfDestinations - 1) + input.NumOfPostmans * 1);
         }
-
-        //[Fact]
-        //public async Task BadCornerCase()
-        //{
-        //    // given
-        //    int[,] costs = {
-        //        { -1, 100, 100, 100 },
-        //        { 0, -1, 0, 0 },
-        //        { 100, 100, -1, 100 },
-        //        { 100, 100, 100, -1 }
-        //    };
-
-        //    InputData input = new()
-        //    {
-        //        Costs = costs
-        //    };
-
-        //    // when
-        //    var result = await _engine.CalculateAsync(input);
-
-        //    // then
-        //    Assert.NotNull(result);
-        //    Assert.False(result.IsError);
-        //    Assert.Null(result.Reason);
-        //    Assert.NotNull(result.Data);
-        //    Assert.Empty(result.Data.Pairs);
-        //}
     }
 }
