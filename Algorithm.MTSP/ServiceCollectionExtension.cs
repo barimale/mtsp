@@ -11,11 +11,9 @@ namespace Algorithm.MTSP
     {
         public static void AddMTSPWithDefaultProviders(this IServiceCollection services, int retryAttempts = 3)
         {
-            services.AddScoped<IEngine, Engine>();
-            services.AddScoped<IMatrixDistanceProvider, BingMapProvider>();
-            services.AddScoped<IRouteProvider, BingMapRouteProvider>();
-            services.AddTransient<RestApiClient>();
-            services.AddHttpClient<RestApiClient>().AddTransientHttpErrorPolicy(p => p.RetryAsync(retryAttempts));
+            services.AddMTSP(retryAttempts);
+            services.AddMatrixDistanceProvider<BingMapProvider>();
+            services.AddRouteProvider<BingMapRouteProvider>();
         }
 
         public static void AddMTSP(this IServiceCollection services, int retryAttempts = 3)
