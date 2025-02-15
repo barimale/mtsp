@@ -1,6 +1,9 @@
 # Design
 ![Architecture concept for design.png](./design.jpg)
 
+## Prereqs:
+- .NET 6.0 SDK
+
 # Architectural challenges
 ```
 - Use saga redux and implement event sourcing and cqrs at the backend and make it async with UI,
