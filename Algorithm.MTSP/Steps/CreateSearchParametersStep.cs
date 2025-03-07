@@ -41,7 +41,7 @@ namespace Algorithm.MTSP.Steps
             try
             {
                 SearchParameters = operations_research_constraint_solver.DefaultRoutingSearchParameters();
-                searchParameters.FirstSolutionStrategy = FirstSolutionStrategy.Types.Value.PathCheapestArc;
+                searchParameters.FirstSolutionStrategy = FirstSolutionStrategy.Types.Value.LocalCheapestArc;
             }
             catch (Exception)
             {

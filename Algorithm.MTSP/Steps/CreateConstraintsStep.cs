@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithm.MTSP.Steps
 {
-    public class CreateConstraintsStep : CreateTransitCallbackStep, IEngineStep
+    public class CreateConstraintsStep : CreateDemandCallbackStep, IEngineStep
     {
         public CreateConstraintsStep()
             : base()

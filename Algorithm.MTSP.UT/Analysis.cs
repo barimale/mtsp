@@ -90,7 +90,9 @@ namespace Algorithm.MTSP.UT
                         Email = "",
                         Id = 2,
                     }
-                }
+                },
+                Demands = [ 0, 1, 1, 2, 4, 2, 4, 8, 8, 1, 2, 1, 2, 4, 4, 8, 8 ],
+                VehicleCapacities = [ 115, 115 ]
             };
 
             // when
