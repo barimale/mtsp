@@ -1,4 +1,6 @@
-# Design
+# Multiple salesmen problem
+
+## Design
 ![Architecture concept for design.png](./design.jpg)
 
 ## Prereqs:
